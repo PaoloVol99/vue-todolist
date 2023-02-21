@@ -59,6 +59,8 @@ menu {
 .todo {
     padding: 8px 16px;
     border-bottom: 1px solid rgb(220, 220, 220);
+    display: flex;
+    justify-content: space-between;
 }
 
 .todo:last-child {
@@ -72,4 +74,8 @@ menu {
 
 .done {
     text-decoration: line-through;
+}
+
+.fa-xmark {
+    cursor: pointer;
 }

@@ -21,7 +21,20 @@ const { createApp } = Vue
                 text: 'fare un\'altra cosa',
                 done: false
             },
-        ]
+        ],
+        newTodo: '',
+        currentTodoIndex: null,
       }
+    },
+    methods: {
+        addTodo() {
+            this.todoList.push({
+                text: this.newTodo,
+                done: false
+            })
+        },
+        deleteTodo(index) {
+            this.todoList.splice(index, 1)
+        }
     }
   }).mount('#app')
