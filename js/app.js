@@ -32,6 +32,7 @@ const { createApp } = Vue
                 text: this.newTodo,
                 done: false
             })
+            this.newTodo = ''
         },
         deleteTodo(index) {
             this.todoList.splice(index, 1)
