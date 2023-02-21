@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDoList</title>
+    <title>ToDoList BONUS</title>
     <script src="https://kit.fontawesome.com/1e6cfe0430.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="./css/style.css">
@@ -15,12 +15,16 @@
             <div class="row">
                 <h1 class="col-12">ToDoList</h1>
                 <div class="col-12 input-wrapper">
-                    <input v-model="newTodo" type="text" placeholder="Inserisci nuovo todo">
+                    <input  @keyup.enter="addTodo" v-model="newTodo" type="text" placeholder="Inserisci nuovo todo">
                     <button @click="addTodo">Aggiungi</button>
                 </div>
                 <ul class="todos-wrapper col-12">
                     <li v-for="(todo, index) in todoList" class="todo">
-                        <span :class="todo.done === true ? 'done' : ''" class="todo-text"> {{todo.text}} </span>
+                        <div class="todo-info">
+                            <i @click="completeTodo(index)" v-show="todo.done === false" class="fa-regular fa-circle"></i>
+                            <i @click="completeTodo(index)" v-show="todo.done === true" class="fa-solid fa-circle-check"></i>
+                            <span @click="completeTodo(index)" :class="todo.done === true ? 'done' : ''" class="todo-text"> {{todo.text}} </span>
+                        </div>
                         <i @click="deleteTodo(index)" class="fa-sharp fa-solid fa-xmark"></i>
                     </li>
                 </ul>

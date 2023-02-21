@@ -36,6 +36,14 @@ const { createApp } = Vue
         },
         deleteTodo(index) {
             this.todoList.splice(index, 1)
+        },
+        completeTodo(index) {
+            if (this.todoList[index].done === false) {
+                this.todoList[index].done = true
+            } else {
+                this.todoList[index].done = false
+            }
+            console.log('click', this.todoList[index].done)
         }
     }
   }).mount('#app')
